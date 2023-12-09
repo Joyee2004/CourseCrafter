@@ -41,17 +41,18 @@ def get_recommendation(title,cosine_sim_mat,df,num_of_rec=10):
 
 	result_df = df.loc[selected_course_indices]
 	result_df['similarity_score'] = selected_course_scores
-	final_recommended_courses = result_df[['Course Name','University','Course URL','Course Rating','Difficulty Level',]]
+	final_recommended_courses = result_df[['Course Name','Course URL','Course Rating','Difficulty Level','University',]]
 	return final_recommended_courses.head(num_of_rec)
 
 RESULT_TEMP = """
 <div style="width:90%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 60px;
 box-shadow:0 0 15px 5px #ccc; background-color:rgb(245,245,220,0.5);border-left: 5px solid #6c6c6c;">
 <h4>{}</h4>
-<p style="color:blue;"><span style="color:black;">University:</span>{}</p>
 <p style="color:blue;"><span style="color:black;">🔗</span><a href="{}",target="_blank">Link</a></p>
-<p style="color:blue;"><span style="color:black;">Rating:</span>{}</p>
-<p style="color:blue;"><span style="color:black;">🧑‍🎓👨🏽‍🎓 Difficulty Level:</span>{}</p>
+<p style="color:blue;"><span style="color:black;">Course Rating:</span>{}</>
+
+<p style="color:blue;"><span style="color:black;">Difficulty Level:</span>{}</p>
+<p style="color:blue;"><span style="color:black;">🧑‍🎓👨🏽‍🎓 University:</span>{}</p>
 
 </div>
 """
